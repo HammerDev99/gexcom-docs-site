@@ -1385,6 +1385,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#p03-fases-planificadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P03 — Fases Planificadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#produccion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1560,6 +1571,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#p03-fases-planificadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P03 — Fases Planificadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#produccion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1638,6 +1660,10 @@
 <td>Archivos src/</td>
 <td><strong>120</strong></td>
 </tr>
+<tr>
+<td>Documentacion</td>
+<td>MkDocs Material — 23 paginas, 6 diagramas Mermaid</td>
+</tr>
 </tbody>
 </table>
 <h2 id="progreso">Progreso<a class="headerlink" href="#progreso" title="Permanent link">&para;</a></h2>
@@ -1681,6 +1707,12 @@
 <td>2026-04-07</td>
 <td>Post-MVP (F6-F9, 28 SPECs)</td>
 <td><strong>Completado</strong> — 358 tests, 120 archivos, 11 endpoints, 2 canales</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>2026-04-07</td>
+<td>Production Readiness (F10-F15, 41 SPECs)</td>
+<td><strong>Planificado</strong> — API hardening, tests, integraciones, migraciones, refactoring</td>
 </tr>
 </tbody>
 </table>
@@ -1829,6 +1861,63 @@
 </tr>
 </tbody>
 </table>
+<h2 id="p03-fases-planificadas">P03 — Fases Planificadas<a class="headerlink" href="#p03-fases-planificadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Tema</th>
+<th style="text-align: center;">SPECs</th>
+<th>Prioridad</th>
+<th style="text-align: center;">Estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A (F10)</td>
+<td>API Hardening: schemas, rate limit, RBAC, CORS, headers</td>
+<td style="text-align: center;">6</td>
+<td>CRITICO</td>
+<td style="text-align: center;">2-3 dias</td>
+</tr>
+<tr>
+<td>B (F11)</td>
+<td>Test Coverage: E2E API, AppTest GUI, Hypothesis, fixtures</td>
+<td style="text-align: center;">7</td>
+<td>CRITICO</td>
+<td style="text-align: center;">3-5 dias</td>
+</tr>
+<tr>
+<td>C (F12)</td>
+<td>Integracion Patrones: UoW, EventBus, Dispatch wiring</td>
+<td style="text-align: center;">5</td>
+<td>HIGH</td>
+<td style="text-align: center;">2-3 dias</td>
+</tr>
+<tr>
+<td>D (F13)</td>
+<td>DB Migrations: timezone, indexes, FK, Alembic</td>
+<td style="text-align: center;">6</td>
+<td>MEDIUM</td>
+<td style="text-align: center;">1-2 dias</td>
+</tr>
+<tr>
+<td>E (F14)</td>
+<td>Refactoring: VOs, ISP, duplicados, logging, escape</td>
+<td style="text-align: center;">11</td>
+<td>MEDIUM</td>
+<td style="text-align: center;">3-4 dias</td>
+</tr>
+<tr>
+<td>F (F15)</td>
+<td>Polish: Radicado factory, TransicionEstado, docstrings</td>
+<td style="text-align: center;">6</td>
+<td>LOW</td>
+<td style="text-align: center;">1-2 dias</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Detalle</strong>: <code>docs/plannings/P03_PRODUCTION_READINESS_PLAN.md</code></p>
 <h2 id="produccion">Produccion<a class="headerlink" href="#produccion" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1855,9 +1944,14 @@
 <td><strong>Funcional</strong> (11 endpoints)</td>
 </tr>
 <tr>
+<td>Documentacion (MkDocs)</td>
+<td>Docker :8080 (Nginx)</td>
+<td><strong>Funcional</strong> (site/)</td>
+</tr>
+<tr>
 <td>Produccion</td>
 <td>—</td>
-<td>Pendiente</td>
+<td>Pendiente P03</td>
 </tr>
 </tbody>
 </table>
