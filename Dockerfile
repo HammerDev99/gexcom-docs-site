@@ -8,36 +8,47 @@ server {
     server_name _;
     root /usr/share/nginx/html;
     index index.html;
+    charset utf-8;
+
+    # MIME types
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
 
     # Gzip
     gzip on;
     gzip_vary on;
     gzip_proxied any;
     gzip_comp_level 6;
-    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
+    gzip_types text/plain text/css application/json application/javascript
+               application/x-javascript text/javascript text/xml
+               application/xml application/xml+rss image/svg+xml;
 
-    # Cache estaticos (1 year)
-    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+    # Cache: estaticos con hash en nombre (1 year, immutable)
+    location ~* \.(css|js|woff|woff2|ttf|eot|png|jpg|jpeg|gif|ico|svg)$ {
         expires 1y;
         add_header Cache-Control "public, immutable";
+        add_header X-Content-Type-Options "nosniff" always;
     }
 
     # HTML sin cache (actualizaciones inmediatas)
     location ~* \.html$ {
         expires -1;
         add_header Cache-Control "no-store, no-cache, must-revalidate";
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
     }
 
-    # Rutas
+    # JSON (search index de MkDocs)
+    location ~* \.json$ {
+        expires -1;
+        add_header Cache-Control "no-store, no-cache, must-revalidate";
+    }
+
+    # Rutas: SPA-style fallback para MkDocs
     location / {
         try_files $uri $uri/ $uri/index.html =404;
     }
-
-    # Security headers
-    add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header X-Content-Type-Options "nosniff" always;
-    add_header X-XSS-Protection "1; mode=block" always;
-    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
     server_tokens off;
 }
